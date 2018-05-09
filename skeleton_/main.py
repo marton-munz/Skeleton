@@ -4,7 +4,7 @@ import shutil
 
 
 def complete_template_file(fn, kvs):
-    """..."""
+    """Replace fields in the template file with values from the given dictionary"""
 
     out_tmp = open(fn + '_tmp', 'w')
 
@@ -22,7 +22,7 @@ def complete_template_file(fn, kvs):
 
 
 def run(ver, project_name):
-    """..."""
+    """Run process of creating project skeleton"""
 
     project_name = project_name.replace(' ', '')
     year = str(datetime.datetime.today().year)
@@ -75,4 +75,4 @@ def run(ver, project_name):
         '{}/{}/{}'.format(working_dir, project_name, project_name.lower())
     )
 
-    print 'Skeleton {}: New project named \"{}\" has been created.'.format(ver, project_name)
+    print '\nSkeleton {}: New project named \"{}\" has been created.\n'.format(ver, project_name)
