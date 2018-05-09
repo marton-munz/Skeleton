@@ -9,7 +9,7 @@ def complete_template_file(fn, kvs):
     out_tmp = open(fn + '_tmp', 'w')
 
     for line in open(fn):
-        line = line.strip()
+        line = line.rstrip()
         for k, v in kvs.iteritems():
             key = '[{}]'.format(k)
             if key in line:
