@@ -37,7 +37,7 @@ def run(ver, project_name):
     # Completing template files:
 
     complete_template_file(
-        '{}/{}/LICENCE'.format(working_dir, project_name),
+        '{}/{}/LICENCE.md'.format(working_dir, project_name),
         {'Year': year}
     )
 
@@ -54,6 +54,11 @@ def run(ver, project_name):
     complete_template_file(
         '{}/{}/bin/Project.py'.format(working_dir, project_name),
         {'Project': project_name, 'project': project_name.lower()}
+    )
+
+    complete_template_file(
+        '{}/{}/CHANGELOG.md'.format(working_dir, project_name),
+        {'Project': project_name}
     )
 
     # Renaming files:
