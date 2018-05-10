@@ -7,7 +7,7 @@ setup(
     url='...',
     author='...',
     author_email='...',
-    license='...',
+    licence='MIT',
     packages=['main'],
     scripts=['bin/[Project].py'],
     zip_safe=False
