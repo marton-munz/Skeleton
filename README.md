@@ -1,5 +1,5 @@
 # Skeleton
 
-Simple utility for creating a project skeleton for command line tools
+A simple utility for creating project skeleton for command line tools
 
 Usage: skeleton ProjectName

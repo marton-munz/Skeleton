@@ -3,12 +3,11 @@
 all:
 
 
-
 clean:
     rm -r env
 
-
 smoketest:
+    ./smoketest.sh
 
 unittest:
     pytest test/unit

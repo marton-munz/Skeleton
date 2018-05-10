@@ -62,6 +62,11 @@ def run(ver, project_name):
         {'Project': project_name}
     )
 
+    complete_template_file(
+        '{}/{}/smoketest.sh'.format(working_dir, project_name),
+        {'Project': project_name, 'project': project_name.lower()}
+    )
+
     # Renaming files:
 
     os.rename(
