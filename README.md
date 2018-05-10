@@ -1,5 +1,5 @@
 # Skeleton
 
-Creates a Python project skeleton following our standard project structure
+Simple utility for creating a project skeleton for command line tools
 
 Usage: skeleton ProjectName

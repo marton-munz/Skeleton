@@ -1,6 +1,7 @@
 import os
 import datetime
 import shutil
+import subprocess
 
 
 def complete_template_file(fn, kvs):
@@ -43,16 +44,16 @@ def run(ver, project_name):
 
     complete_template_file(
         '{}/{}/setup.py'.format(working_dir, project_name),
-        {'Project': project_name, 'project': project_name.lower()}
-    )
-
-    complete_template_file(
-        '{}/{}/bin/project'.format(working_dir, project_name),
         {'Project': project_name}
     )
 
     complete_template_file(
-        '{}/{}/bin/Project.py'.format(working_dir, project_name),
+        '{}/{}/project'.format(working_dir, project_name),
+        {'Project': project_name}
+    )
+
+    complete_template_file(
+        '{}/{}/main/cli.py'.format(working_dir, project_name),
         {'Project': project_name, 'project': project_name.lower()}
     )
 
@@ -64,8 +65,8 @@ def run(ver, project_name):
     # Renaming files:
 
     os.rename(
-        '{}/{}/bin/project'.format(working_dir, project_name),
-        '{}/{}/bin/{}'.format(working_dir, project_name, project_name.lower())
+        '{}/{}/project'.format(working_dir, project_name),
+        '{}/{}/{}'.format(working_dir, project_name, project_name.lower())
     )
 
     os.rename(
@@ -73,11 +74,7 @@ def run(ver, project_name):
         '{}/{}/bin/{}.py'.format(working_dir, project_name, project_name)
     )
 
-    # Renaming directory:
-
-    os.rename(
-        '{}/{}/project'.format(working_dir, project_name),
-        '{}/{}/{}'.format(working_dir, project_name, project_name.lower())
-    )
+    # Make script executable
+    subprocess.call(["chmod", "+x", '{}/{}/{}'.format(working_dir, project_name, project_name.lower())])
 
     print '\nSkeleton {}: New project named \"{}\" has been created.\n'.format(ver, project_name)
