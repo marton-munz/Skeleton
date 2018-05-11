@@ -1,4 +1,9 @@
 #!/bin/bash
+
+echo ''
+echo 'Installing [Project] [version] ...'
+echo ''
+
 unset PYTHONPATH
 
 ABSOLUTE_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -12,4 +17,5 @@ pip install --no-cache-dir --ignore-installed --force-reinstall --upgrade pip
 pip install ${PIP_ARGS} -r requirements.txt
 pip install -U .
 
-./smoketest.sh
+test/smoke/test_installation.sh
+

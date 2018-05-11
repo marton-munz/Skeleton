@@ -63,8 +63,13 @@ def run(ver, project_name):
     )
 
     complete_template_file(
-        '{}/{}/smoketest.sh'.format(working_dir, project_name),
-        {'Project': project_name, 'project': project_name.lower()}
+        '{}/{}/test/smoke/test_installation.sh'.format(working_dir, project_name),
+        {'Project': project_name, 'project': project_name.lower(), 'version': ver}
+    )
+
+    complete_template_file(
+        '{}/{}/install.sh'.format(working_dir, project_name),
+        {'Project': project_name, 'version': ver}
     )
 
     # Renaming files:
@@ -79,7 +84,9 @@ def run(ver, project_name):
         '{}/{}/bin/{}.py'.format(working_dir, project_name, project_name)
     )
 
-    # Make script executable
+    # Make scripts executable
+    subprocess.call(["chmod", "+x", '{}/{}/install.sh'.format(working_dir, project_name)])
     subprocess.call(["chmod", "+x", '{}/{}/{}'.format(working_dir, project_name, project_name.lower())])
+    subprocess.call(["chmod", "+x", '{}/{}/test/smoke/test_installation.sh'.format(working_dir, project_name)])
 
     print '\nSkeleton {}: New project named \"{}\" has been created.\n'.format(ver, project_name)
