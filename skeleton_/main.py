@@ -31,6 +31,12 @@ def run(ver, project_name):
     script_dir = os.path.dirname(os.path.realpath(__file__))
     template_dir = script_dir[:script_dir.find('env/lib/')] + '/template'
 
+    # Check if project directory already exists
+    if os.path.isdir('{}/{}'.format(working_dir, project_name)):
+        print '\nSkeleton {}:'.format(ver)
+        print  'Error: Unable to create project as directory already exists.\n'
+        quit()
+
     # Copy over content of template directory:
 
     shutil.copytree(template_dir, '{}/{}'.format(working_dir, project_name))
@@ -89,4 +95,6 @@ def run(ver, project_name):
     subprocess.call(["chmod", "+x", '{}/{}/{}'.format(working_dir, project_name, project_name.lower())])
     subprocess.call(["chmod", "+x", '{}/{}/test/smoke/test_installation.sh'.format(working_dir, project_name)])
 
-    print '\nSkeleton {}: New project named \"{}\" has been created.\n'.format(ver, project_name)
+    print '\nSkeleton {}:'.format(ver)
+    print 'New project named \"{}\" has been created.\n'.format(project_name)
+

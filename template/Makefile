@@ -7,7 +7,7 @@ clean:
     rm -r env
 
 smoketest:
-    ./smoketest.sh
+    test/smoke/test_installation.sh
 
 unittest:
     pytest test/unit
