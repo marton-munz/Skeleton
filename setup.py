@@ -3,12 +3,11 @@ from setuptools import setup
 setup(
     name='Skeleton',
     version='0.1.0',
-    description='blabla',
-    url='blabla',
-    author='RahmanTeam',
-    author_email='rahmanlab@icr.ac.uk',
+    description='A simple utility for creating project skeleton for command line tools',
+    url='https://github.com/marton-munz/Skeleton',
+    author='Marton Munz',
     license= 'MIT',
-    packages=['skeleton_'],
-    scripts=['bin/Skeleton.py', 'bin/skeleton'],
+    packages=['main'],
+    scripts=['bin/Skeleton.py'],
     zip_safe=False
 )
