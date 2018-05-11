@@ -102,6 +102,11 @@ def run(ver, project_name):
     )
 
     os.rename(
+        '{}/{}/gitattributes'.format(working_dir, project_name),
+        '{}/{}/.gitattributes'.format(working_dir, project_name)
+    )
+
+    os.rename(
         '{}/{}/bin/Project.py'.format(working_dir, project_name),
         '{}/{}/bin/{}.py'.format(working_dir, project_name, project_name)
     )
