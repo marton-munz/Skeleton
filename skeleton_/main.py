@@ -78,6 +78,22 @@ def run(ver, project_name):
         {'Project': project_name, 'version': ver}
     )
 
+    complete_template_file(
+        '{}/{}/test/unit/README.md'.format(working_dir, project_name),
+        {'Project': project_name}
+    )
+
+    complete_template_file(
+        '{}/{}/test/smoke/README.md'.format(working_dir, project_name),
+        {'Project': project_name}
+    )
+
+    complete_template_file(
+        '{}/{}/test/regression/README.md'.format(working_dir, project_name),
+        {'Project': project_name}
+    )
+
+
     # Renaming files:
 
     os.rename(
