@@ -1,8 +1,10 @@
 from setuptools import setup
 
+exec(open('main/version.py').read())
+
 setup(
     name='Skeleton',
-    version='0.1.0',
+    version=__version__,
     description='A simple utility for creating project skeleton for command line tools',
     url='https://github.com/marton-munz/Skeleton',
     author='Marton Munz',

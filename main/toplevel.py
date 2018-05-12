@@ -2,6 +2,7 @@ import os
 import datetime
 import shutil
 import subprocess
+from .version import __version__
 
 
 def complete_template_file(fn, kvs):
@@ -22,7 +23,7 @@ def complete_template_file(fn, kvs):
     os.rename(fn + '_tmp', fn)
 
 
-def run(ver, project_name):
+def run(project_name):
     """Run process of creating project skeleton"""
 
     project_name = project_name.replace(' ', '')
@@ -33,7 +34,7 @@ def run(ver, project_name):
 
     # Check if project directory already exists
     if os.path.isdir('{}/{}'.format(working_dir, project_name)):
-        print '\nSkeleton {}:'.format(ver)
+        print '\nSkeleton {}:'.format(__version__)
         print  'Error: Unable to create project as directory already exists.\n'
         quit()
 
@@ -75,7 +76,7 @@ def run(ver, project_name):
 
     complete_template_file(
         '{}/{}/install.sh'.format(working_dir, project_name),
-        {'Project': project_name, 'version': ver}
+        {'Project': project_name}
     )
 
     complete_template_file(
@@ -116,6 +117,6 @@ def run(ver, project_name):
     subprocess.call(["chmod", "+x", '{}/{}/{}'.format(working_dir, project_name, project_name.lower())])
     subprocess.call(["chmod", "+x", '{}/{}/test/smoke/test_installation.sh'.format(working_dir, project_name)])
 
-    print '\nSkeleton {}:'.format(ver)
+    print '\nSkeleton {}:'.format(__version__)
     print 'New project named \"{}\" has been created.\n'.format(project_name)
 
