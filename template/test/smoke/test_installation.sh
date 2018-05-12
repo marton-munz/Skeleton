@@ -1,16 +1,18 @@
 #!/bin/bash
 
-echo ''
-echo 'Final test of installation:'
+VERSION="$(python -c "from main.version import __version__; print __version__")"
+
+echo ""
+echo "Final test of installation:"
 
 ./[project] --help &> /dev/null
 
 if [ $? != 0 ]
 then
-    echo 'Error: [Project] [version] installation failed.'
-    echo ''
+    echo "Error: [Project] $VERSION installation failed."
+    echo ""
     exit 1
 fi
 
-echo '[Project] [version] installation succeeded!'
-echo ''
+echo "[Project] $VERSION installation succeeded!"
+echo ""

@@ -70,7 +70,7 @@ def run(ver, project_name):
 
     complete_template_file(
         '{}/{}/test/smoke/test_installation.sh'.format(working_dir, project_name),
-        {'Project': project_name, 'project': project_name.lower(), 'version': ver}
+        {'Project': project_name, 'project': project_name.lower()}
     )
 
     complete_template_file(

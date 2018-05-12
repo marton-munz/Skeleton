@@ -2,16 +2,18 @@
 
 from optparse import OptionParser
 import toplevel
+from .version import __version__
+
 
 def start_cli():
 
-    # Version
-    _version = '0.1.0'
+    parser = OptionParser(
+        description='[Project] v{}'.format(__version__),
+        usage='[Project]/[project] <options>',
+        version=__version__
+    )
 
-    # Command line argument parsing
-    descr = '[Project] v'+_version
-    parser = OptionParser(usage='[Project]/[project] <options>'.format(_version), version=_version, description=descr)
-    parser.add_option('-i', '--input', default=None, dest='input', action='store', help="Input file")
+    parser.add_option( '-i', '--input', default=None, dest='input', action='store', help="Input file")
     (options, args) = parser.parse_args()
 
-    toplevel.run()
+    toplevel.run(options)

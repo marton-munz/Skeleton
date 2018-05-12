@@ -1,4 +1,6 @@
+from .version import __version__
 
-def run():
+
+def run(options):
 
     pass

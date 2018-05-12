@@ -1,8 +1,10 @@
 from setuptools import setup
 
+exec(open('main/version.py').read())
+
 setup(
     name='[Project]',
-    version='0.1.0',
+    version=__version__,
     description='',
     url='...',
     author='...',
