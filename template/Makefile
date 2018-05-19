@@ -1,31 +1,9 @@
-
-
-all:
-
-
-clean:
-    rm -r env
-
-smoketest:
-    test/smoke/test_installation.sh
-
 unittest:
-    pytest test/unit
-
-regtest:
-    env/bin/regtest test/regression
-
-test: smoketest unittest regtest
-
-
-installreqs:
-
-
-installthis:
-
-
-install: installreqs installthis
-
-
-
-profile:
+	echo "Unit tests:"
+	source env/bin/activate; \
+	pytest test/unit -v
+	
+smoketest:
+	test/smoke/test_installation.sh
+	
+test: smoketest unittest
